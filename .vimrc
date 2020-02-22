@@ -11,10 +11,16 @@ set softtabstop=4                 " number of spaces in tab when editing
 set expandtab                     " tabs are spaces
 " }}}
 " UI Layout {{{
+syntax enable                     " enable syntax
+set nocompatible                  " Do not try to be vi
 set number                        " show line numbers
 set showcmd                       " show command in bottom bar
 set cursorline                    " highlight current line
+filetype plugin on                " Enable plugins
 filetype indent on                " load filetype-specific indent files
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
 set wildmenu                      " visual autocomplete for command menu
 set lazyredraw                    " redraw only when needed
 set showmatch                     " highlight matching [{()}]
@@ -36,5 +42,21 @@ nnoremap <space> za
 " Modelines {{{
 set modeline
 set modelines=1
+" }}}
+" Tagging {{{
+" Create the `tags` file
+command! MakeTags !ctags -R .
+" }}}
+" File Browsing {{{
+let g:netrw_banner=0              " disable annoying banner
+let g:netrw_browse_split=4        " open in prior window
+let g:netrw_altv=1                " opens splits to the right
+let g:netrw_liststyle=3           " tree view
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+" }}}
+" Snippet Injection {{{
+" Example Below
+" nnoremap <leader>html :-lread $HOME/.vim/.skeleton.html<CR>3jwf>a
 " }}}
 " vim: set foldmethod=marker foldlevel=0:
