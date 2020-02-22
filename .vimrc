@@ -33,5 +33,8 @@ set foldmethod=indent             " fold based on indent level
 " space open/closes folds
 nnoremap <space> za
 " }}}
+" Modelines {{{
+set modeline
 set modelines=1
-" vim:foldmethod=marker:foldlevel=0
+" }}}
+" vim: set foldmethod=marker foldlevel=0:
