@@ -59,4 +59,8 @@ let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 " Example Below
 " nnoremap <leader>html :-lread $HOME/.vim/.skeleton.html<CR>3jwf>a
 " }}}
+" Swap Files {{{
+set swapfile
+set dir=$HOME/tmp
+" }}}
 " vim: set foldmethod=marker foldlevel=0:
