@@ -52,8 +52,14 @@ let g:netrw_banner=0              " disable annoying banner
 let g:netrw_browse_split=4        " open in prior window
 let g:netrw_altv=1                " opens splits to the right
 let g:netrw_liststyle=3           " tree view
+let g:netrw_winsize=25
 let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+augroup ProjectDrawer
+  autocmd!
+  autocmd VimEnter * :Vexplore
+  autocmd TabNew * call feedkeys(":Vexplore\<CR>", 'n')
+augroup END
 " }}}
 " Snippet Injection {{{
 " Example Below
@@ -62,5 +68,11 @@ let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 " Swap Files {{{
 set swapfile
 set dir=$HOME/tmp
+" }}}
+" File Extension Overrides {{{
+augroup vimrc
+  autocmd!
+  autocmd BufNewFile,BufRead *.yml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+augroup END
 " }}}
 " vim: set foldmethod=marker foldlevel=0:
