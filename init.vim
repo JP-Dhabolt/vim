@@ -55,11 +55,7 @@ let g:netrw_liststyle=3           " tree view
 let g:netrw_winsize=25
 let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
-augroup ProjectDrawer
-  autocmd!
-  autocmd VimEnter * :Vexplore
-  autocmd TabNew * call feedkeys(":Vexplore\<CR>", 'n')
-augroup END
+nnoremap <leader>fe :Vexplore<CR>
 " }}}
 " Snippet Injection {{{
 " Example Below
@@ -73,6 +69,16 @@ set dir=$HOME/tmp
 augroup vimrc
   autocmd!
   autocmd BufNewFile,BufRead *.yml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+  autocmd BufNewFile,BufRead *.md setlocal shiftwidth=4 tabstop=4 softtabstop=4
 augroup END
+" }}}
+" {{{ Plugins
+call plug#begin(stdpath('data') . '/plugged')
+Plug 'vimwiki/vimwiki'
+Plug 'itchyny/lightline.vim'
+call plug#end()
+" }}}
+" {{{ VimWiki
+let g:vimwiki_list = [{'path': '$WIKI_LOC', 'syntax': 'markdown', 'ext': 'md'}]
 " }}}
 " vim: set foldmethod=marker foldlevel=0:
