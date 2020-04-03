@@ -70,6 +70,7 @@ augroup vimrc
   autocmd!
   autocmd BufNewFile,BufRead *.yml setlocal shiftwidth=2 tabstop=2 softtabstop=2
   autocmd BufNewFile,BufRead *.md setlocal shiftwidth=4 tabstop=4 softtabstop=4
+  autocmd BufNewFile,BufRead *.js setlocal shiftwidth=4 tabstop=4 softtabstop=4
 augroup END
 " }}}
 " {{{ Plugins
@@ -79,6 +80,12 @@ Plug 'itchyny/lightline.vim'
 call plug#end()
 " }}}
 " {{{ VimWiki
-let g:vimwiki_list = [{'path': '$WIKI_LOC', 'syntax': 'markdown', 'ext': 'md'}]
+let g:vimwiki_list = [{'path': '$WIKI_LOC', 'auto_tags': 1}]
+command! Diary VimwikiDiaryIndex
+augroup vimwikigroup
+    autocmd!
+    " automatically update links on read diary
+    autocmd BufRead,BufNewFile diary.wiki VimwikiDiaryGenerateLinks
+augroup end
 " }}}
 " vim: set foldmethod=marker foldlevel=0:
