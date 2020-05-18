@@ -1,5 +1,3 @@
-" Initial Vim example
-" source $VIMRUNTIME/vimrc_example.vim
 " Leader Shortcuts {{{
 let mapleader=","
 " save session
@@ -75,6 +73,7 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'vimwiki/vimwiki'
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'scrooloose/nerdcommenter'
 call plug#end()
 " }}}
 " {{{ VimWiki
@@ -250,5 +249,30 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " F2 runs rename
 nmap <F2> :CocCommand document.renameCurrentWord<CR>
+" }}}
+" {{{ nerdcommenter
+" <C-_> binds to Ctrl + / for some reason
+vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
+nmap <C-_> <Plug>NERDCommenterToggle
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code
+" indentation
+let g:NERDDefaultAlign = 'left'
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check if all selected lines are commented or
+" not
+let g:NERDToggleCheckAllLines = 1
 " }}}
 " vim: set foldmethod=marker foldlevel=0:
