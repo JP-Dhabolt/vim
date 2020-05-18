@@ -76,6 +76,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
+Plug 'othree/yajs.vim'
+Plug 'vim-python/python-syntax'
 
 " Themes
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -105,7 +107,6 @@ let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
   \ 'coc-tsserver',
-  \ 'coc-python',
   \ 'coc-eslint',
   \ 'coc-prettier',
   \ 'coc-json'
