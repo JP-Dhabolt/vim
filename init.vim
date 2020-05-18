@@ -21,6 +21,9 @@ set path+=**
 set wildmenu                      " visual autocomplete for command menu
 set lazyredraw                    " redraw only when needed
 set showmatch                     " highlight matching [{()}]
+set termguicolors
+colorscheme codedark
+let g:lightline = { 'colorscheme': 'codedark' }
 " }}}
 " Search settings {{{
 set incsearch                     " search as characters are entered
@@ -75,6 +78,13 @@ Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
+
+" Themes
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'morhetz/gruvbox'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'tomasiser/vim-code-dark'
+
 call plug#end()
 " }}}
 " {{{ VimWiki
