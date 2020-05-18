@@ -13,7 +13,6 @@ set expandtab                     " tabs are spaces
 " UI Layout {{{
 syntax enable                     " enable syntax
 set nocompatible                  " Do not try to be vi
-set number                        " show line numbers
 set showcmd                       " show command in bottom bar
 set cursorline                    " highlight current line
 filetype plugin on                " Enable plugins
@@ -53,9 +52,7 @@ let g:netrw_browse_split=4        " open in prior window
 let g:netrw_altv=1                " opens splits to the right
 let g:netrw_liststyle=3           " tree view
 let g:netrw_winsize=25
-let g:netrw_list_hide=netrw_gitignore#Hide()
-let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
-nnoremap <leader>fe :Vexplore<CR>
+nnoremap <leader>fe :Lexplore<CR>
 " }}}
 " Snippet Injection {{{
 " Example Below
@@ -70,7 +67,7 @@ augroup vimrc
   autocmd!
   autocmd BufNewFile,BufRead *.yml setlocal shiftwidth=2 tabstop=2 softtabstop=2
   autocmd BufNewFile,BufRead *.md setlocal shiftwidth=4 tabstop=4 softtabstop=4
-  autocmd BufNewFile,BufRead *.js setlocal shiftwidth=4 tabstop=4 softtabstop=4
+  autocmd BufNewFile,BufRead *.js setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
 " }}}
 " {{{ Plugins
