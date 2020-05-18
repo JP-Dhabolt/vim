@@ -22,8 +22,6 @@ set wildmenu                      " visual autocomplete for command menu
 set lazyredraw                    " redraw only when needed
 set showmatch                     " highlight matching [{()}]
 set termguicolors
-colorscheme codedark
-let g:lightline = { 'colorscheme': 'codedark' }
 " }}}
 " Search settings {{{
 set incsearch                     " search as characters are entered
@@ -86,6 +84,10 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'tomasiser/vim-code-dark'
 
 call plug#end()
+" }}}
+" {{{ Theme
+colorscheme codedark
+let g:lightline = { 'colorscheme': 'codedark' }
 " }}}
 " {{{ VimWiki
 let g:vimwiki_list = [{'path': '$WIKI_LOC', 'auto_tags': 1}]
