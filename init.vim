@@ -74,6 +74,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdcommenter'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 " }}}
 " {{{ VimWiki
@@ -274,5 +275,16 @@ let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check if all selected lines are commented or
 " not
 let g:NERDToggleCheckAllLines = 1
+" }}}
+" {{{ gitgutter
+" Disable gitgutter automatic mappings
+let g:gitgutter_map_keys = 0
+
+" Move to next (]) and previous ([) changes
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
+
+" Preview changes
+nmap <leader>hp <Plug>(GitGutterPreviewHunk)
 " }}}
 " vim: set foldmethod=marker foldlevel=0:
